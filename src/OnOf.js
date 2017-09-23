@@ -41,5 +41,4 @@ class OnOf extends Component {
     )
   }
 }
-//todo - schowaj wszystko, jeśli wyłączony
 export default OnOf;

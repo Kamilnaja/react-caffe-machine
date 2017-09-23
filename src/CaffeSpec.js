@@ -5,7 +5,7 @@ class CaffeSpec extends Component {
     return (
       <div className="caffeSpec">
         {
-          this.props.enabled === false && (
+          !this.props.enabled && (
           <div>
             <h2>Ekspress wyłączony</h2>
           </div>
@@ -16,9 +16,11 @@ class CaffeSpec extends Component {
             <div>
               <h2>Ekspress włączony</h2>
               <h2>Wybierz rodzaj kawy</h2>
-              <input type="radio" name="caffeSpec" id=""/>Cappuccino
-              <input type="radio" name="caffeSpec" id=""/>Latte
-              <input type="radio" name="caffeSpec" id=""/>Americano
+              {/* todo - po wybraniu, ustaw w caffeinfo */}
+              {/*wyślij do rodzica i z rodzica do trzeciego elementu */}
+              <input type="radio" name="caffeSpec" id="cappuccino"/>Cappuccino
+              <input type="radio" name="caffeSpec" id="latte"/>Latte
+              <input type="radio" name="caffeSpec" id="americano"/>Americano
             </div>
           )}
 
