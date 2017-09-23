@@ -2,7 +2,11 @@ import React, {Component} from 'react';
 
 class CaffeSpec extends Component {
   render () {
-    return (
+    let caffeSpecList = ["Capuccino", "Latte", "Americano"];
+    let caffeUnwrapped = caffeSpecList.map((item) => <li key={item}>{item}</li>);
+
+    console.log(caffeUnwrapped);
+      return (
       <div className="caffeSpec">
         {
           !this.props.enabled && (
@@ -16,11 +20,9 @@ class CaffeSpec extends Component {
             <div>
               <h2>Ekspress włączony</h2>
               <h2>Wybierz rodzaj kawy</h2>
-              {/* todo - po wybraniu, ustaw w caffeinfo */}
-              {/*wyślij do rodzica i z rodzica do trzeciego elementu */}
-              <input type="radio" name="caffeSpec" id="cappuccino"/>Cappuccino
-              <input type="radio" name="caffeSpec" id="latte"/>Latte
-              <input type="radio" name="caffeSpec" id="americano"/>Americano
+              <ul>
+                {caffeUnwrapped}
+              </ul>
             </div>
           )}
 
