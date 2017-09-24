@@ -12,7 +12,7 @@ class OnOf extends Component {
 
   componentWillMount () {
     this.setState({
-      enabled: false
+      enabled: true
     })
   }
 
@@ -36,7 +36,7 @@ class OnOf extends Component {
           <input type="radio" name="on" onClick={this.setEnabled} />Włącz
           <input type="radio" name="on" onClick={this.setDisabled} />Wyłącz
 
-          <CaffeSpec  enabled={this.state.enabled}/>
+          <CaffeSpec  enabled={this.state.enabled} caffeSpecList={["Capuccino", "Latte", "Americano"]} />
         </div>
     )
   }
