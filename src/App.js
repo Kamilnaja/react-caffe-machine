@@ -8,8 +8,7 @@ class App extends Component {
         <h1>Ekspress app</h1>
         <form>
           <OnOf/>
-          <CaffeInfo
-/>
+          <CaffeInfo/>
         </form>
       </div>
     );

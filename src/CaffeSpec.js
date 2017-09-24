@@ -1,12 +1,22 @@
 import React, {Component} from 'react';
 
 class CaffeSpec extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      caffeValue: 'Capuccino'
+    };
+    this._setCaffe = this._setCaffe.bind(this);
+  }
+
+  _setCaffe(event) {
+      this.setState({caffeValue: event.target.value});
+      console.log(event.target.value);
+  }
+
   render () {
     let caffeUnwrapped = this.props.caffeSpecList.map((item, idx) =>
-      <div key={idx}>
-        <input key={item} type="radio" id={item}/>
-        <label key={idx} htmlFor={item}>{item}</label>
-      </div>
+      <option key={item}  id={item} value={item} >{item}</option>
     );
 
       return (
@@ -23,7 +33,9 @@ class CaffeSpec extends Component {
             <div>
               <h2>Ekspress włączony</h2>
               <h2>Wybierz rodzaj kawy</h2>
+              <select name="" id="" onChange={this._setCaffe}>
                 {caffeUnwrapped}
+              </select>
             </div>
           )}
 
@@ -31,5 +43,9 @@ class CaffeSpec extends Component {
     )
   }
 }
+
+CaffeSpec.propTypes = {
+  // _saveCaffe: React.PropTypes.func.required
+};
 
 export default CaffeSpec
