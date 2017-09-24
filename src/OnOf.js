@@ -10,6 +10,12 @@ class OnOf extends Component {
     this.setDisabled = this.setDisabled.bind(this);
   }
 
+  //rodzic
+  myCallback = (dataFromChild) => {
+    console.log(dataFromChild);
+    var myData = dataFromChild;
+  };
+
   componentWillMount () {
     this.setState({
       enabled: true
@@ -23,12 +29,14 @@ class OnOf extends Component {
     })
   }
 
-  setDisabled () {
+  setDisabled() {
     const { enabled } = this.state;
     this.setState({
       enabled: false
     })
   }
+
+
   render () {
     return (
         <div>
@@ -36,7 +44,7 @@ class OnOf extends Component {
           <input type="radio" name="on" onClick={this.setEnabled} />Włącz
           <input type="radio" name="on" onClick={this.setDisabled} />Wyłącz
 
-          <CaffeSpec  enabled={this.state.enabled} caffeSpecList={["Capuccino", "Latte", "Americano"]} />
+          <CaffeSpec  enabled={this.state.enabled} caffeSpecList={["Capuccino", "Latte", "Americano"]}  callbackFromParent={this.myCallback}  />
         </div>
     )
   }

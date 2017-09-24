@@ -11,8 +11,12 @@ class CaffeSpec extends Component {
 
   _setCaffe(event) {
       this.setState({caffeValue: event.target.value});
-      console.log(event.target.value);
+      // console.log(event.target.value);
   }
+
+  someFn = () => {
+    this.props.callbackFromParent(this.state.caffeValue);
+  };
 
   render () {
     let caffeUnwrapped = this.props.caffeSpecList.map((item, idx) =>
@@ -36,6 +40,7 @@ class CaffeSpec extends Component {
               <select name="" id="" onChange={this._setCaffe}>
                 {caffeUnwrapped}
               </select>
+              <a onClick={this.someFn}>SEND</a>
             </div>
           )}
 
