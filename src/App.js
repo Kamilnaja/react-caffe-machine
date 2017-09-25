@@ -38,9 +38,10 @@ class App extends Component {
             updateOn={this.setEnabled}
             updateOf = {this.setDisabled}
           />
-          <CaffeInfo />
+          <CaffeInfo enabled={this.state.enabled}/>
           <CaffeSpec
             caffeSpecList={["Capuccino", "Latte", "Americano"]}
+            enabled={this.state.enabled}
             />
         </form>
       </div>

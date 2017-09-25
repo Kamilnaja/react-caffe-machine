@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 class CaffeInfo extends Component {
   render() {
     return (
+
       <div>
         <hr/>
         <p>
