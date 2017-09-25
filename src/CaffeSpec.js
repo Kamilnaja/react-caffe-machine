@@ -10,27 +10,22 @@ class CaffeSpec extends Component {
   }
 
   _setCaffe(event) {
-      this.setState({caffeValue: event.target.value});
-      // console.log(event.target.value);
+    this.setState({caffeValue: event.target.value});
   }
 
-  someFn = () => {
-    this.props.callbackFromParent(this.state.caffeValue);
-  };
-
-  render () {
+  render() {
     let caffeUnwrapped = this.props.caffeSpecList.map((item, idx) =>
-      <option key={item}  id={item} value={item} >{item}</option>
+      <option key={item} id={item} value={item}>{item}</option>
     );
 
-      return (
+    return (
       <div className="caffeSpec">
         {
           !this.props.enabled && (
-          <div>
-            <h2>Ekspress wyłączony</h2>
-          </div>
-        )}
+            <div>
+              <h2>Ekspress wyłączony</h2>
+            </div>
+          )}
 
         {
           this.props.enabled && (

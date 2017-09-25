@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import CaffeSpec from "./CaffeSpec";
+
 class OnOf extends Component {
   constructor (props) {
     super(props);
@@ -9,12 +9,6 @@ class OnOf extends Component {
     this.setEnabled = this.setEnabled.bind(this);
     this.setDisabled = this.setDisabled.bind(this);
   }
-
-  //rodzic
-  myCallback = (dataFromChild) => {
-    console.log(dataFromChild);
-    var myData = dataFromChild;
-  };
 
   componentWillMount () {
     this.setState({
@@ -26,15 +20,21 @@ class OnOf extends Component {
     const { enabled } = this.state;
     this.setState({
       enabled: true
-    })
+    });
+    this.someFn();
   }
 
   setDisabled() {
     const { enabled } = this.state;
     this.setState({
       enabled: false
-    })
+    });
+    this.someFn();
   }
+
+  someFn = () => {
+    this.props.callbackFromParent(this.state.enabled);
+  };
 
 
   render () {
@@ -42,9 +42,7 @@ class OnOf extends Component {
         <div>
           <hr/>
           <input type="radio" name="on" onClick={this.setEnabled} />Włącz
-          <input type="radio" name="on" onClick={this.setDisabled} />Wyłącz
-
-          <CaffeSpec  enabled={this.state.enabled} caffeSpecList={["Capuccino", "Latte", "Americano"]}  callbackFromParent={this.myCallback}  />
+          <input type="radio" name="off" onClick={this.setDisabled} />Wyłącz
         </div>
     )
   }
