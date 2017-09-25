@@ -2,24 +2,46 @@ import React, { Component } from 'react';
 import OnOf from './OnOf';
 import CaffeInfo from "./CaffeInfo";
 import CaffeSpec from "./CaffeSpec";
-class App extends Component {
 
-  myCallback = (dataFromChild) => {
-    // console.log(dataFromChild);
-    return dataFromChild;
-  };
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      enabled: true
+    };
+    this.setDisabled = this.setDisabled.bind(this);
+    this.setEnabled =  this.setEnabled.bind(this);
+  }
+  setEnabled () {
+    const { enabled } = this.state;
+    this.setState({
+      enabled: true
+    });
+    console.log(this.state.enabled);
+  }
+
+  setDisabled() {
+    const { enabled } = this.state;
+    this.setState({
+      enabled: false
+    });
+    console.log(this.state.enabled);
+  }
+
   render() {
-    const _enabled = this.myCallback;
-    console.log(this.dataFromChild);
+
     return (
       <div className="App">
         <h1>Ekspress app</h1>
         <form>
-          <OnOf callbackFromParent={this.myCallback} />
+          <OnOf
+            updateOn={this.setEnabled}
+            updateOf = {this.setDisabled}
+          />
           <CaffeInfo />
           <CaffeSpec
             caffeSpecList={["Capuccino", "Latte", "Americano"]}
-            enabled={_enabled} />
+            />
         </form>
       </div>
     );

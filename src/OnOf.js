@@ -6,8 +6,6 @@ class OnOf extends Component {
     this.state = {
       enabled: false
     };
-    this.setEnabled = this.setEnabled.bind(this);
-    this.setDisabled = this.setDisabled.bind(this);
   }
 
   componentWillMount () {
@@ -16,33 +14,18 @@ class OnOf extends Component {
     })
   }
 
-  setEnabled () {
-    const { enabled } = this.state;
-    this.setState({
-      enabled: true
-    });
-    this.someFn();
-  }
-
-  setDisabled() {
-    const { enabled } = this.state;
-    this.setState({
-      enabled: false
-    });
-    this.someFn();
-  }
-
-  someFn = () => {
-    this.props.callbackFromParent(this.state.enabled);
-  };
-
-
   render () {
     return (
         <div>
           <hr/>
-          <input type="radio" name="on" onClick={this.setEnabled} />Włącz
-          <input type="radio" name="off" onClick={this.setDisabled} />Wyłącz
+          <input
+            type="radio"
+            name="trigger"
+            onClick={this.props.updateOn} />Włącz
+          <input
+            type="radio"
+            name="trigger"
+            onClick={this.props.updateOf} />Wyłącz
         </div>
     )
   }
