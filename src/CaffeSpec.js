@@ -6,12 +6,9 @@ class CaffeSpec extends Component {
     this.state = {
       caffeValue: 'Capuccino'
     };
-    this._setCaffe = this._setCaffe.bind(this);
   }
 
-  _setCaffe(event) {
-    this.setState({caffeValue: event.target.value});
-  }
+
 
   render() {
     let caffeUnwrapped = this.props.caffeSpecList.map((item, idx) =>
@@ -32,10 +29,10 @@ class CaffeSpec extends Component {
             <div>
               <h2>Ekspress włączony</h2>
               <h2>Wybierz rodzaj kawy</h2>
-              <select name="" id="" onChange={this._setCaffe}>
+              <select name="" id="" onChange={this.props.updateSpec}>
                 {caffeUnwrapped}
               </select>
-              <a onClick={this.someFn}>SEND</a>
+
             </div>
           )}
 

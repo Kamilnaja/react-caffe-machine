@@ -7,17 +7,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      enabled: true
+      enabled: true,
+      caffeValue: "Latte"
     };
+
     this.setDisabled = this.setDisabled.bind(this);
     this.setEnabled =  this.setEnabled.bind(this);
+    this.setCaffe = this.setCaffe.bind(this);
   }
+
   setEnabled () {
     const { enabled } = this.state;
     this.setState({
       enabled: true
     });
-    console.log(this.state.enabled);
   }
 
   setDisabled() {
@@ -25,11 +28,14 @@ class App extends Component {
     this.setState({
       enabled: false
     });
-    console.log(this.state.enabled);
+  }
+
+  setCaffe(event) {
+    this.setState({caffeValue: event.target.value});
+    console.log(this.state);
   }
 
   render() {
-
     return (
       <div className="App">
         <h1>Ekspress app</h1>
@@ -38,11 +44,15 @@ class App extends Component {
             updateOn={this.setEnabled}
             updateOf = {this.setDisabled}
           />
-          <CaffeInfo enabled={this.state.enabled}/>
           <CaffeSpec
             caffeSpecList={["Capuccino", "Latte", "Americano"]}
             enabled={this.state.enabled}
+            updateSpec={this.setCaffe}
             />
+          <CaffeInfo
+            enabled={this.state.enabled}
+            caffeValue={this.state.caffeValue}
+          />
         </form>
       </div>
     );

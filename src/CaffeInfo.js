@@ -7,7 +7,7 @@ class CaffeInfo extends Component {
       <div>
         <hr/>
         <p>
-          Wybrana kawa to :
+          Wybrana kawa to : {this.props.caffeValue}
         </p>
       </div>
     )
