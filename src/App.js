@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import OnOf from './OnOf';
 import CaffeInfo from "./CaffeInfo";
 import CaffeSpec from "./CaffeSpec";
-
+import StartCaffe from "./StartCaffe";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -39,21 +39,25 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Ekspress app</h1>
-        <form>
           <OnOf
             updateOn={this.setEnabled}
-            updateOf = {this.setDisabled}
+            updateOf={this.setDisabled}
           />
+
           <CaffeSpec
             caffeSpecList={["Capuccino", "Latte", "Americano"]}
             enabled={this.state.enabled}
             updateSpec={this.setCaffe}
             />
-          <CaffeInfo
+          
+          <StartCaffe 
             enabled={this.state.enabled}
-            caffeValue={this.state.caffeValue}
           />
-        </form>
+
+          <CaffeInfo
+          enabled={this.state.enabled}
+          caffeValue={this.state.caffeValue}
+        />
       </div>
     );
   }

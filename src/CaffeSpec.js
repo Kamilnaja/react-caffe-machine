@@ -8,8 +8,6 @@ class CaffeSpec extends Component {
     };
   }
 
-
-
   render() {
     let caffeUnwrapped = this.props.caffeSpecList.map((item, idx) =>
       <option key={item} id={item} value={item}>{item}</option>

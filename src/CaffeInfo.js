@@ -5,10 +5,12 @@ class CaffeInfo extends Component {
     return (
 
       <div>
+      {
+        this.props.enabled && 
+        <p>Wybrana kawa to : {this.props.caffeValue}</p>
+      }
         <hr/>
-        <p>
-          Wybrana kawa to : {this.props.caffeValue}
-        </p>
+        
       </div>
     )
   }
