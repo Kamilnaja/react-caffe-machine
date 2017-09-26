@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import CaffeInfo from './CaffeInfo';
 class Display extends Component {
   constructor(props) {
     super(props);
@@ -7,28 +7,28 @@ class Display extends Component {
       caffeValue: 'Capuccino'
     };
   }
-
+  
   render() {
-    let caffeUnwrapped = this.props.caffeSpecList.map((item, idx) =>
-      <option key={item} id={item} value={item}>{item}</option>
-    );
-
-    return (
-      <div class="display-wrapper">
-      <div className="display">
-
+  return (
+    <div className="display">
+    
+    {
+      this.props.enabled && (
+        <div>
+          <h2>Ekspress włączony</h2>
+          <CaffeInfo
+            enabled={this.state.enabled}
+            caffeValue={this.state.caffeValue}
+        />
+        <h2>Wybierz rodzaj kawy</h2>
         {
-          this.props.enabled && (
-            <div>
-              <h2>Ekspress włączony</h2>
-              <h2>Wybierz rodzaj kawy</h2>
-            </div>
-          )}
-      </div>
-      
-      <select name="" id="" onChange={this.props.updateSpec}>
-        {caffeUnwrapped}
-      </select>
+          !this.props.caffeValue && (
+            <p>. . . </p>
+          )
+        }
+        <p>{this.props.caffeValue}</p>
+        </div>
+      )}
       </div>
     )
   }

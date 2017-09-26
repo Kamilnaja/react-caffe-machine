@@ -11,6 +11,7 @@ body {
   padding: 15px 10px;
   background-color: silver;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  max-width: 350px;
 }
 
 .display {
@@ -19,7 +20,8 @@ body {
   background-color: black;
   color: green;
   font-family: Courier New, Courier, monospace;
-  padding: 5px 10px;
+  padding: 5px 10px 10px;
+  margin: 20px auto;
 }
 
 .display h2 {

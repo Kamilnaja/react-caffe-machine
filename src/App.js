@@ -3,17 +3,19 @@ import OnOf from './OnOf';
 import CaffeInfo from "./CaffeInfo";
 import Display from "./Display";
 import StartCaffe from "./StartCaffe";
+import CaffeSelect from "./CaffeSelect";
+
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       enabled: true,
-      caffeValue: "Latte"
     };
 
     this.setDisabled = this.setDisabled.bind(this);
     this.setEnabled =  this.setEnabled.bind(this);
-    this.setCaffe = this.setCaffe.bind(this);
+    this.updateCaffeValue = this.updateCaffeValue.bind(this);
   }
 
   setEnabled () {
@@ -30,34 +32,35 @@ class App extends Component {
     });
   }
 
-  setCaffe(event) {
+  updateCaffeValue (event) {
     this.setState({caffeValue: event.target.value});
-    console.log(this.state);
   }
 
   render() {
     return (
       <div className="App">
         <h1>Ekspress app</h1>
+        
           <OnOf
             updateOn={this.setEnabled}
             updateOf={this.setDisabled}
           />
 
+          <CaffeSelect 
+          caffeSpecList={["Capuccino", "Latte", "Americano"]} 
+          updateCaffeValue={this.updateCaffeValue}
+          />
+
           <Display
-            caffeSpecList={["Capuccino", "Latte", "Americano"]}
             enabled={this.state.enabled}
             updateSpec={this.setCaffe}
+            caffeValue={this.state.caffeValue}
             />
           
           <StartCaffe 
             enabled={this.state.enabled}
           />
 
-          <CaffeInfo
-          enabled={this.state.enabled}
-          caffeValue={this.state.caffeValue}
-        />
       </div>
     );
   }

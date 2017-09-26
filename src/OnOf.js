@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 class OnOf extends Component {
   constructor (props) {
     super(props);
+    
     this.state = {
       enabled: false
     };
