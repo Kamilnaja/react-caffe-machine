@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OnOf from './OnOf';
 import CaffeInfo from "./CaffeInfo";
-import CaffeSpec from "./CaffeSpec";
+import Display from "./Display";
 import StartCaffe from "./StartCaffe";
 class App extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class App extends Component {
             updateOf={this.setDisabled}
           />
 
-          <CaffeSpec
+          <Display
             caffeSpecList={["Capuccino", "Latte", "Americano"]}
             enabled={this.state.enabled}
             updateSpec={this.setCaffe}
