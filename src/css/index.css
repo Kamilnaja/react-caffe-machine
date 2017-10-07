@@ -27,3 +27,30 @@ body {
 .display h2 {
   font-size: 14px;
 }
+
+.title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.glass {
+  width: 200px;
+  background-color: rgba(0, 255, 255, 0.2);
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: solid 15px rgba(0, 255, 255, 0.9);
+  position: relative;
+}
+
+.caffe-in-glass {
+  background-color: #440606;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10%;
+  position: absolute;
+  bottom: -15px;
+  color: white;
+  text-align: center;
+}

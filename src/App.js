@@ -4,13 +4,13 @@ import CaffeInfo from "./CaffeInfo";
 import Display from "./Display";
 import StartCaffe from "./StartCaffe";
 import CaffeSelect from "./CaffeSelect";
-
+import CaffeGlass from "./CaffeGlass";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      enabled: true,
+      enabled: false,
     };
 
     this.setDisabled = this.setDisabled.bind(this);
@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Ekspress app</h1>
+        <h1 className="title">Ekspress app</h1>
         
           <OnOf
             updateOn={this.setEnabled}
@@ -60,7 +60,7 @@ class App extends Component {
           <StartCaffe 
             enabled={this.state.enabled}
           />
-
+          <CaffeGlass />
       </div>
     );
   }
