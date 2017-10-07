@@ -43,14 +43,87 @@ body {
   position: relative;
 }
 
-.caffe-in-glass {
-  background-color: #440606;
+.Latte {
+  background-color: #7C5838;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 10%;
   position: absolute;
   bottom: -15px;
   color: white;
   text-align: center;
+  border-top: 20px solid #F1CFA3;
+  animation-name: LatteAnim;
+  animation-duration: 4s;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+.Capuccino {
+  background-color: #7C5838;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  bottom: -15px;
+  color: white;
+  text-align: center;
+  animation-name: CapuccinoAnim;
+  animation-duration: 4s;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+.Americano {
+  background-color: #583F28;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  bottom: -15px;
+  color: white;
+  text-align: center;
+  border-top: 5px solid tan;
+  animation-name: AmericanoAnim;
+  animation-duration: 4s;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes LatteAnim {
+  0% {
+    height: 0
+  }
+  100% {
+    height: 90%
+  }
+}
+
+@keyframes AmericanoAnim {
+  0% {
+    height: 0
+  }
+  100% {
+    height: 90%
+  }
+}
+
+@keyframes CapuccinoAnim {
+  0% {
+    height: 0;
+    border-top: 0px solid #F3DCC0;
+  
+  }
+  20% {
+    border-top: 50px solid #F3DCC0;
+    
+  }
+  100% {
+    height: 50%;
+    border-top: 50px solid #F3DCC0;
+  
+  }
 }

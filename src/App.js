@@ -10,12 +10,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      enabled: false,
+      enabled: true,
+      caffeValue: "Capuccino"
     };
 
     this.setDisabled = this.setDisabled.bind(this);
     this.setEnabled =  this.setEnabled.bind(this);
     this.updateCaffeValue = this.updateCaffeValue.bind(this);
+    this.updateStartValue = this.updateStartValue.bind(this);
   }
 
   setEnabled () {
@@ -34,6 +36,12 @@ class App extends Component {
 
   updateCaffeValue (event) {
     this.setState({caffeValue: event.target.value});
+  }
+
+  updateStartValue () {
+    this.setState ({
+      makingCoffe: true
+    })
   }
 
   render() {
@@ -59,8 +67,13 @@ class App extends Component {
           
           <StartCaffe 
             enabled={this.state.enabled}
+            caffeValue={this.state.caffeValue}
+            caffeMaking={this.updateStartValue}
           />
-          <CaffeGlass />
+          <CaffeGlass 
+            caffeValue={this.state.caffeValue}
+            caffeMaking={this.state.makingCoffe}
+          />
       </div>
     );
   }

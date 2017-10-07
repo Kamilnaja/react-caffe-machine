@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
 
 class StartCaffe extends Component {
-  makeCaffe () {
-    console.log("robi się ")
+  constructor (props) {
+    super(props)
+    this.state = {
+      makingCoffe: false
+    }
   }
+
   render () {
     return (
-      
       <div>
       {
         this.props.enabled && 
-          <button onClick={this.makeCaffe}>Zrób kawę</button>
+          <button onClick={this.props.caffeMaking}>Zrób kawę</button>
       }
-        
       </div>
     ) 
   }
