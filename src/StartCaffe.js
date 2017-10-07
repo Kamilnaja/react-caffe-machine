@@ -13,7 +13,7 @@ class StartCaffe extends Component {
       <div>
       {
         this.props.enabled && 
-          <button onClick={this.props.caffeMaking}>Zrób kawę</button>
+          <button onClick={this.props.caffeMaking} className="btn-start">Zrób kawę</button>
       }
       </div>
     ) 

@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      enabled: true,
+      enabled: false,
       caffeValue: "Capuccino"
     };
 
@@ -30,12 +30,14 @@ class App extends Component {
   setDisabled() {
     const { enabled } = this.state;
     this.setState({
-      enabled: false
+      enabled: false,
+      makingCoffe: false,
+
     });
   }
 
   updateCaffeValue (event) {
-    this.setState({caffeValue: event.target.value});
+    this.setState({caffeValue: event.target.value, makingCoffe: false});
   }
 
   updateStartValue () {
@@ -46,7 +48,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
+      <div className="App wrapper">
         <h1 className="title">Ekspress app</h1>
         
           <OnOf
@@ -70,11 +73,14 @@ class App extends Component {
             caffeValue={this.state.caffeValue}
             caffeMaking={this.updateStartValue}
           />
-          <CaffeGlass 
-            caffeValue={this.state.caffeValue}
-            caffeMaking={this.state.makingCoffe}
-          />
+
       </div>
+      <CaffeGlass 
+      caffeValue={this.state.caffeValue}
+      caffeMaking={this.state.makingCoffe}
+      enabled={this.state.enabled}
+    />
+    </div>
     );
   }
 }

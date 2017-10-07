@@ -7,11 +7,11 @@ class CaffeSelect extends Component {
     <option key={item} id={item} value={item}>{item}</option>
   );
     return (
-      <div>
-        <select name="" id="" onChange={this.props.updateCaffeValue}>
+      <label className="choser">
+        <select name="" id="" onChange={this.props.updateCaffeValue} className="options">
         {caffeUnwrapped}
         </select>
-      </div>
+      </label>
     )
   }
 }

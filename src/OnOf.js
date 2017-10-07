@@ -8,26 +8,31 @@ class OnOf extends Component {
       enabled: false
     };
   }
-
+  
   componentWillMount () {
     this.setState({
       enabled: true
     })
   }
-
+  
   render () {
     return (
-        <div>
-          <hr/>
-          <input
-            type="radio"
-            name="trigger"
-            onClick={this.props.updateOn} />Włącz
-          <input
-            type="radio"
-            name="trigger"
-            onClick={this.props.updateOf} />Wyłącz
+      <div className="radio-wrapper">
+      <div>
+        <input
+        type="radio"
+        name="trigger"
+        onClick={this.props.updateOn} />
+        <label>Włącz</label>
         </div>
+        <div>
+        <input
+        type="radio"
+        name="trigger"
+        onClick={this.props.updateOf} />
+        <label>Wyłącz</label>
+      </div>
+      </div>
     )
   }
 }

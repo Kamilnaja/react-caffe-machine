@@ -3,11 +3,17 @@ import React, {Component} from 'react';
 export default class CaffeGlass extends Component {
   render () {
     return (
-      <div>
+      <div className="glass-wrapper">
       {
         this.props.caffeMaking && (
-          <div className="glass">
-          <p className={this.props.caffeValue}></p>
+          <div>
+          {
+            this.props.enabled && (
+              <div className="glass">
+              <p className={this.props.caffeValue}></p>
+              </div>
+            )
+          }
         </div>
         )
       }
